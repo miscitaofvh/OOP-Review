@@ -4,15 +4,16 @@
 
 using namespace std;
 
+// Base class for all insects
 class Insect {
 protected:
-    string name;
-    vector<int> stages;
+    string name; // Name of the insect
+    vector<int> stages; // Development stages of the insect
 public:
     Insect(string name, vector<int> stages) : name(name), stages(stages) {}
     virtual ~Insect() {}
-    virtual bool isValid() = 0;
-    virtual istream& input(istream& in) = 0;
+    virtual bool isValid() = 0; // Pure virtual function to check if the stages are valid
+    virtual istream& input(istream& in) = 0; // Pure virtual function for input
     string getName() { return name; }
     bool inRange(int stage, int min, int max) {
         return stage >= min && stage <= max;
@@ -22,6 +23,7 @@ public:
     }
 };
 
+// Derived class for Mosquito
 class Mosquito : public Insect {
 public:
     Mosquito() : Insect("Mosquito", {}) {}
@@ -39,6 +41,7 @@ public:
     }
 };
 
+// Derived class for Frog
 class Frog : public Insect {
 public:
     Frog() : Insect("Frog", {}) {}
@@ -56,6 +59,7 @@ public:
     }    
 };
 
+// Derived class for Butterfly
 class Butterfly : public Insect {
 public:
     Butterfly() : Insect("Butterfly", {}) {}
@@ -73,9 +77,10 @@ public:
     }
 };
 
+// Class to manage a collection of insects
 class Insects {
 private:
-    vector<Insect*> insects;
+    vector<Insect*> insects; // Vector to store pointers to Insect objects
 public: 
     ~Insects() {
         for (auto insect : insects) 
