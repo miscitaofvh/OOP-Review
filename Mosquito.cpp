@@ -17,5 +17,5 @@ istream& operator>>(istream& in, Mosquito& mosquito) {
 }
 
 bool Mosquito::isValid() {
-    return stages.size() == 4 && inRange(stages[0], 1, 3) && inRange(stages[1], 5, 7) && inRange(stages[2], 8, 10) && inRange(stages[3], 2, 4);
+    return stages.size() == 4 && inRange(stages[0], 1, 3) && inRange(stages[1], 4, 10) && inRange(stages[2], 2, 3) && inRange(stages[3], 5, 8);
 }
